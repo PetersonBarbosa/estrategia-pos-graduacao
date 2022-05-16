@@ -20,6 +20,4 @@ public class HealthResource {
         return "{\"status\": \"ok\"}";
     }
 
-
-
 }
