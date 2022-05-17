@@ -1,0 +1,5 @@
+br\estrategia\app\application\resource\HelloWorldResource.class
+br\estrategia\app\domain\model\Aluno.class
+br\estrategia\app\application\resource\HealthResource.class
+br\estrategia\app\ApplicationBootstrap.class
+br\estrategia\app\infra\rest\URI_PATHS_CONSTANTS.class
