@@ -34,9 +34,15 @@ public class Aluno {
         return id;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getNome() {
         return nome;
     }
+
+
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
@@ -58,4 +64,6 @@ public class Aluno {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+
 }

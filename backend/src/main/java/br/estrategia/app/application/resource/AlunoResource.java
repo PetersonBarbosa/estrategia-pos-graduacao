@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,7 +20,7 @@ public class AlunoResource {
     private AlunoRepository alunoRepository;
 
     @GetMapping
-    public ResponseEntity<Aluno> listar() {
+    public ResponseEntity<List<Aluno>> listar() {
         return new ResponseEntity(alunoRepository.findAll(), HttpStatus.OK);
     }
 
@@ -39,13 +40,15 @@ public class AlunoResource {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Aluno> atualizar(@PathVariable("id") long id, @RequestBody Aluno aluno) {
+
         Optional<Aluno> alunoRecuperadoDaBase = alunoRepository.findById(id);
         if (alunoRecuperadoDaBase.isPresent()) {
             aluno.setId(id);
-            return new ResponseEntity(alunoRepository.save(aluno), HttpStatus.CREATED);
+            return new ResponseEntity(alunoRepository.save(aluno), HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
+
     @DeleteMapping(value = "/{id}")
     public  ResponseEntity<Aluno> remover(@PathVariable("id") long id){
         alunoRepository.deleteById(id);
